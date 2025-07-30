@@ -9,7 +9,7 @@ load_dotenv()
 # --- Configuration ---
 # Load from environment variables
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY1")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY2")
 
 # The Gemini model to use. "gemini-2.5-flash" is recommended for speed.
 GEMINI_MODEL_NAME = "gemini-2.5-flash"
@@ -214,7 +214,10 @@ async def on_message(message):
 
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
-        await message.channel.send("Sorry, I encountered an error while trying to get a response from Gemini.")
+        if "block_reason: PROHIBITED_CONTENT" in str(e):
+            await message.channel.send("I'm sorry, but I cannot respond to that message. It may contain content that violates my safety guidelines.")
+        else:
+            await message.channel.send("Sorry, I encountered an error while trying to get a response from Gemini.")
 
 # --- Run the Bot ---
 if __name__ == "__main__":
