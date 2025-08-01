@@ -41,7 +41,7 @@ This is a Discord bot that uses Google's Gemini 2.5 Flash model to interact with
 
 2.  **Interact with the bot in a Discord server:**
 
-    *   **To have a conversation with the bot, simply mention it in a message.**
+    *   **To have a conversation with the bot, simply mention it in a message or include the keyword "mrok" (case-insensitive) in your message.**
     *   **To send a direct message to another user, use the following format:**
 
         ```

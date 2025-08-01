@@ -93,6 +93,10 @@ async def on_message(message):
         print(f"Conversation reset by {message.author.display_name}")
         return
 
+    # Check if the bot was mentioned or the keyword "mrok" is in the message
+    if not client.user.mentioned_in(message) and "mrok" not in message.content.lower():
+        return
+
     # Prepare content for Gemini, including text and images
     contents_for_gemini = []
 
